@@ -13,7 +13,12 @@ Template.messages_list.helpers({
     var chatids = Privategroup.find().fetch()[i].chatIds;
     var b = Privategroup.find().fetch()[i]._id;
       var mlen=Privategroup.find().fetch()[i].messages.length;
-      var latest=Privategroup.find().fetch()[i].messages[mlen-1];
+      if( mlen==null){
+        var latest = {content:"user typing.."};
+      }else {
+        var latest=Privategroup.find().fetch()[i].messages[mlen-1];
+      }
+
     if(chatids[0]==Meteor.userId()){
       var otherUser = chatids[1];
       var a = Clone.find({_id:otherUser}).fetch()[0];
@@ -26,7 +31,7 @@ Template.messages_list.helpers({
       var a = Clone.find({_id:otherUser}).fetch()[0];
       var fullname =a.first_name;
       // console.log(fullname);
-      names.push({fullname:fullname,roomid:b,content:latest.content,createdBy:latest.cretedAt});
+      names.push({fullname:fullname,roomid:b,content:latest.content,createdBy:latest.cretedAt,id:a._id});
     }
   }
   // console.log(names);
@@ -37,9 +42,10 @@ Template.messages_list.helpers({
 Template.messages_list.events({
   'click .messages-list-item':function(){
     if (document.documentElement.clientWidth < 786) {
+      var name=this.fullname;
       document.getElementById("chat-area-right").style.display = "none";
           document.getElementById("chat-area-rightb").style.display = 'block';
-          var name=this.fullname;
+        
          //  document.getElementById('messages-list-sec').style.display="none";
           document.getElementById('lgroup-chat-sec').style.display="block";
           document.getElementById('pirvate-post-box').style.display="block";
@@ -72,7 +78,8 @@ Template.messages_list.events({
       // console.log(this.id);
       Session.set('currentId',this.id);
       var res=Privategroup.findOne({chatIds:{$all:[this.id,Meteor.userId()]}});
-      // console.log(res);
+      console.log(this.id,Meteor.userId());
+      console.log(res);
       if(res)
       {
         Session.set('roomid',res._id);

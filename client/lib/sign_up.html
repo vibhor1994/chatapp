@@ -1,0 +1,22 @@
+<Template name='sign_up'>
+    <div id="left_panel" class = "panel">
+      <div id="new-user-div">New user</div>
+      <div id="sign-up-div"><h2>Sign-up</h2></div>
+
+      <div id=signup-form ><form>
+          <div class="signup-div">
+            <div class="signup-tag">Name</div><input type="text" id='profile-name' class="signup-input" placeholder='Name.....' required/>
+          </div>
+          <div class="signup-div">
+            <div class="signup-tag">Email-ID</div><input type='email' id='email-id' class="signup-input" placeholder='Example@gmail.com' required/>
+          </div>
+          <div class="signup-div">
+            <div class="signup-tag">Password</div><input type="password" id='profile-pass' class="signup-input" placeholder="Create new password" required/>
+          </div>
+
+          <div><button type="submit" class="button">SUBMIT</button></div>
+          <div><button type="reset" class="button">RESET</button></div>
+          <div id = 'error-exist' class='error-msg' hidden>User already exist</div>
+      </form></div>
+    </div>
+</Template>

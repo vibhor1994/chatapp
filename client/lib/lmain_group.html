@@ -1,0 +1,48 @@
+<template name='lmain_group'>
+    <div id="chat-area-rightb"  class="chat-area-class">
+        <div id="group-name-div" >
+            <i id="back-btn" class="material-icons" style="font-size:36px;float:left;cursor:pointer;">arrow_back</i>
+            <div class="private-name" id="lmain-private-name" >Messages</div>
+        </div>
+        {{> chat_list}}
+
+
+    </div>
+</template>
+
+<template name="lpost">
+<form id="pirvate-post-box" hidden>
+             <textarea type="text" id="private-message" ></textarea>
+             <button  id='msg-button' type="submit">Reply</button>
+        </form>
+</template>
+
+
+
+
+<template name="chat_list">
+  <div id="lgroup-chat-sec" class="chat-area-class" hidden>
+    <div id='lgroup-chat-sub'>
+      <ul id="chat-list" >
+
+           {{#each showFriends}}
+           <div class=wrapper-main>
+           <div class="{{#if equals this.createdBy}}
+           post-wrapper-right
+           {{else}}
+           post-wrapper-left
+           {{/if}}" >
+            <li class="post">
+                  <div class="{{#if equals this.createdBy}}msg-time-right{{else}}msg-time-left{{/if}}" id="post-info-item"><span data-livestamp="{{cretedAt}}"></span></div>
+                <div class="{{#if equals this.createdBy}}post-content-right{{else}}post-content-left{{/if}}">{{content}}</div>
+             </li>
+             </div>
+             </div>
+           {{/each}}
+           </ul>
+    </div>
+  </div>
+  <div id="group-post-form" class="chat-area-class" >
+    {{> lpost}}
+  </div>
+</template>

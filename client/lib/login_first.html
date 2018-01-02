@@ -1,0 +1,11 @@
+<template name='login_first'>
+
+    {{> top_bar}}
+    {{#if currentUser}}
+    {{else}}
+    <!-- <div id = 'login-first'> -->
+      {{> sign_up}}
+      {{> sign_in}}
+    <!-- </div> -->
+  {{/if}}
+</template>

@@ -1,0 +1,29 @@
+<template name='top_bar'>
+  <div id='main-div-TopBar' >
+
+        <div id='name-div-TopBar' class="element-TopBar">
+          <h2>TEXTING</h2>
+        </div>
+         {{#if currentUser}}
+        {{> search_area_TopBar}}
+        <!-- {{> friend_req}} -->
+        {{> logout_link}}
+        {{/if}}
+  </div>
+</template>
+
+
+<template name='search_area_TopBar'>
+
+    <form>
+     <div id="top-SearchBar" class="element-TopBar">
+     <input type="text" id="search" name="search" placeholder="Search.."></div>
+    </form>
+
+</template>
+<template name='logout_link'>
+
+     <div id="logout-link" class="element-TopBar"><a href='#' class='logout'>
+     <i class="fa fa-power-off" title="logout" style="font-size:24px;color: red;margin-right: 30px;cursor: pointer;box-sizing: border-box;margin-top: 10px;"></i></a></div>
+
+  </template>

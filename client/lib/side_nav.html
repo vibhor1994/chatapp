@@ -1,0 +1,30 @@
+<template name='side_nav'>
+ <div id="side-panel">
+     <div id="menu-area-SidePanel" >
+       <!-- <div class='menu-item-div'><a href='home'><div class="menu-icons"><i class="	fa fa-home" style="font-size:23px;"></i></div><div id="home" class="menu-box">Home</div></a></div> -->
+       <!-- <div class='menu-item-div'><a href='messages'><div class="menu-icons"><i class="fa fa-envelope-o" style="font-size:20px;"></i></div><div id="messages" class="menu-box">Messages</div></a></div> -->
+       <div class='menu-item-div'><a href='profile'><div class="menu-icons"><i class="fa fa-user-circle" style="font-size:20px;"></i></div><div id="profile" class="menu-box">{{Showname}}</div></a></div>
+       <!-- <div class='menu-item-div'><a href='friends'><div class="menu-icons"><i class="fa fa-group" style="font-size:20px;"></i></div><div id="friends" class="menu-box">Friends</div></a></div> -->
+     </div>
+     {{> onlineUsers}}
+ </div>
+ </template>
+
+
+ <template name = "onlineUsers">
+  <div id="online-main-div">
+    <div id="online-users"> Online users</div>
+    <ul id="online-list">
+
+        {{#each online}}
+        <li class="user-item-div" style="cursor:pointer">
+          <div class="online-user-name" >{{fname}}</div>
+          <div class="online-user-id"  hidden >{{id}}</div>
+
+          </li>
+          {{/each}}
+
+
+    </ul>
+  </div>
+ </template>

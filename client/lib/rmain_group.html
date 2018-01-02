@@ -1,0 +1,29 @@
+<template name='rmain_group'>
+    <div id="chat-area-right"  class="chat-area-class">
+        <div id="group-name-div" >
+
+            <div class="private-name" >Your recent chat</div>
+        </div>
+        {{> messages_list}}
+
+
+    </div>
+</template>
+
+
+
+
+<template name="messages_list">
+  <div id="messages-list-sec">
+    <ul id="messages-list">
+      {{# each list}}
+      <li class="messages-list-item">
+        <div class="chat-name-latest">{{fullname}}</div>
+        <div class="chat-time-latest"><span data-livestamp="{{createdBy}}"></span></div>
+        <div class="chat-content-latest">{{content}}</div>
+        <div class="chat-id-latest" hidden>{{id}}</div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

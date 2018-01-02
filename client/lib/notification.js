@@ -21,9 +21,10 @@ Template.onlineUsers.helpers({
 Template.onlineUsers.events({
   'click .online-user-name':function(){
     if (document.documentElement.clientWidth < 786) {
+      var name=this.fname;
       document.getElementById("chat-area-right").style.display = "none";
           document.getElementById("chat-area-rightb").style.display = 'block';
-          var name=this.fullname;
+
          //  document.getElementById('messages-list-sec').style.display="none";
           document.getElementById('lgroup-chat-sec').style.display="block";
           document.getElementById('pirvate-post-box').style.display="block";
